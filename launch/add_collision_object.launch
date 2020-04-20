@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="add_collision_object" type="add_collision_object" name="add_shelf" args="add_collision_object/meshes/shelf.stl shelf /base_link 
+        255 255 255 1 0 -0.8 0 0 0 0 1" />
+    <!--<node pkg="add_collision_object" type="add_collision_object" name="add_table" args="add_collision_object/meshes/table.stl table /base_link 
+        255 255 255 1 0.5 -0.5 0 0 0 0" />-->
+
+    <!-- <node pkg="add_collision_object" type="add_collision_object" name="add_rectang" args="add_collision_object/meshes/big_rectang.stl big_rectang /base_link 
+        255 255 255 0 -0.30 -0.93 0 0 0 0" /> -->
+    
+    <node pkg="add_collision_object" type="add_collision_object" name="add_wall12" args="add_collision_object/meshes/wall2.stl w2 /base_link 
+        0 255 0 1 -0.3 -0.93 0 0 0 0" />
+
+    <node pkg="add_collision_object" type="add_collision_object" name="add_wall1" args="add_collision_object/meshes/wall.stl w1 /base_link 
+        0 0 0 1 2 -2 -0.02 0 -1.57 0" />
+    <!--<node pkg="add_collision_object" type="add_collision_object" name="add_wall2" args="add_collision_object/meshes/wall.stl w2 /base_link 
+        255 255 255 0 -0.75 -2 0 0 0 0" />
+    <node pkg="add_collision_object" type="add_collision_object" name="add_wall3" args="add_collision_object/meshes/wall.stl w3 /base_link 
+        255 255 255 0 2 0.75 0 0 0 1.57" />
+    <node pkg="add_collision_object" type="add_collision_object" name="add_wall4" args="add_collision_object/meshes/wall.stl w4 /base_link 
+        255 255 255 0 2 -0.75 0 0 0 1.57" />-->
+
+</launch>
