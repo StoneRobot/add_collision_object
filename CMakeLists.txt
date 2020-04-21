@@ -231,3 +231,11 @@ target_link_libraries(add_collision_object
 # target_link_libraries(PubMeshes
 #   ${catkin_LIBRARIES}
 # )
+
+add_executable(add_collision_object_service
+  src/add_collision_object_service.cpp
+)
+add_dependencies(add_collision_object_service ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(add_collision_object_service
+  ${catkin_LIBRARIES}
+)
