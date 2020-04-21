@@ -8,6 +8,7 @@ bool handback(std_srvs::Trigger::Request &req, std_srvs::Trigger::Response & rep
     try
     {
         system("roslaunch add_collision_object add_collision_object.launch");
+        ROS_INFO("invoke the service");
         rep.success = true;
         return true;
     }
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
 {
     ros::init(argc, argv, "add_collision_service");
     ros::NodeHandle nh;
-    ros::AsyncSpinner spinner(1);
+    ros::AsyncSpinner spinner(2);
     spinner.start();
     ros::ServiceServer add_server = nh.advertiseService("add_collision", handback);
     ROS_INFO("Please invoke the service");
