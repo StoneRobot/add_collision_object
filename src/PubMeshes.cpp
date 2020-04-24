@@ -9,9 +9,9 @@ PubMeshes::PubMeshes(ros::Publisher diff_pub)
 void PubMeshes::setColor(size_t r, size_t g, size_t b, size_t a)
 {
     color.id = object.id;
-    color.color.r = r;
+    color.color.r = r; 
     color.color.g = g;
-    color.color.b = b;
+    color.color.b = b; 
     color.color.a = a;
 }
 
@@ -39,10 +39,28 @@ void PubMeshes::Pub()
 
     std::vector<moveit_msgs::CollisionObject> collision_objects;  
     collision_objects.push_back(object); 
-    planning_scene_interface.addCollisionObjects(collision_objects);
+    planning_scene_interface.applyCollisionObjects(collision_objects);
+    // planning_scene_interface.addCollisionObjects(collision_objects);
     
     moveit_msgs::PlanningScene p;
     p.is_diff = true;
     p.object_colors.push_back(color);
     pub_scene_diff.publish(p);
+    checkPubStatus();
+}
+
+bool PubMeshes::checkPubStatus()
+{
+    std::map<std::string, moveit_msgs::CollisionObject> b;
+    std::vector<std::string> a;
+    a.push_back(object.id);
+    b = planning_scene_interface.getObjects(a);
+    string object_id = b[a[0]].header.frame_id;
+    // ROS_INFO_STREAM(object_id);
+    if(object_id.empty())
+    {
+        ROS_INFO("Cannot find %s, try again!", object.id.c_str());
+        Pub();
+    }
+    return true;
 }

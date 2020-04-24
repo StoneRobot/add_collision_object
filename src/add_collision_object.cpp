@@ -8,7 +8,7 @@ int main(int argc, char **argv)
     spinner.start();
 
     ros::Publisher scene_pub = node_handle.advertise<moveit_msgs::PlanningScene>("planning_scene", 1);
-    
+    ros::service::waitForService("/move_group/save_map", -1);
     sleep(2.0);
     try
     {

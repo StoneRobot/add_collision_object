@@ -9,9 +9,11 @@
 #include "moveit_msgs/ObjectColor.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include <string.h>
+#include <vector>
+#include <map>
 #include <stdlib.h>
 #include <stdexcept>
-using namespace std;
+using namespace std; 
 
 class PubMeshes
 {
@@ -20,6 +22,7 @@ public:
     void getMeshes(string sys, string name, string frame_id, geometry_msgs::Pose pose);
     void setColor(size_t r, size_t g, size_t b, size_t a);
     void Pub();
+    bool checkPubStatus();
     virtual ~PubMeshes()
     {
     };
