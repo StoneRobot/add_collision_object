@@ -7,13 +7,13 @@
         255 255 255 0 0 -0.9 0 0 0 0 1" output="screen" />
     
     <node pkg="add_collision_object" type="add_collision_object" name="add_wall12" args="add_collision_object/meshes/wall2.stl w2 /base_link 
-        0 255 0 0.25 -0.3 -0.60 0 0 0 0" output="screen" />
+        0 255 0 1 -0.3 -0.60 0 0 0 0" output="screen" />
 
     <node pkg="add_collision_object" type="add_collision_object" name="add_ceiling" args="add_collision_object/meshes/ceiling.stl ceiling /base_link 
         0 255 0 0 -0.3 -0.60 0.95 0 0 0" output="screen" />
 
-    <node pkg="add_collision_object" type="add_collision_object" name="add_floor" args="add_collision_object/meshes/floor.stl floor /base_link 
-        0 0 0 1 2 -2 -0.02 0 -1.57 0" output="screen" />
+    <node pkg="add_collision_object" type="add_collision_object" name="add_floor" args="add_collision_object/meshes/ceiling.stl floor /base_link 
+        0 0 0 1 -0.3 -0.60 0 0 0 0" output="screen" />
 
 
 </launch>
