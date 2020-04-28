@@ -51,6 +51,7 @@ void PubMeshes::Pub()
 
 bool PubMeshes::checkPubStatus()
 {
+    static int cnt = 0;
     std::map<std::string, moveit_msgs::CollisionObject> b;
     std::vector<std::string> a;
     a.push_back(object.id);
@@ -60,6 +61,12 @@ bool PubMeshes::checkPubStatus()
     if(object_id.empty())
     {
         ROS_INFO("Cannot find %s, try again!", object.id.c_str());
+        ros::WallDuration(2.0).sleep();
+        cnt ++;
+        if(cnt > 5)
+        {
+            return false;
+        }
         Pub();
     }
     return true;

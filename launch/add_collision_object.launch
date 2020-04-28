@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <node pkg="add_collision_object" type="add_collision_object" name="add_shelf" args="add_collision_object/meshes/shelf2.stl shelf /base_link 
-        255 255 255 1 0 -0.87 0 0 0 0 1" output="screen" />
+        255 255 255 1 0 -0.9 0 0 0 0 1" output="screen" />
     <!--<node pkg="add_collision_object" type="add_collision_object" name="add_table" args="add_collision_object/meshes/table.stl table /base_link 
         255 255 255 1 0.5 -0.5 0 0 0 0" />-->
 
